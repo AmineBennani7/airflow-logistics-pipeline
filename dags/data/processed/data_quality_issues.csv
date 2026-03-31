@@ -1,0 +1,1 @@
+shipment_id,customer_id,route_id,vehicle_id,driver_id,planned_departure,actual_departure,planned_arrival,actual_arrival,origin,destination,distance_km,fuel_cost,shipment_revenue,shipment_status,cargo_type

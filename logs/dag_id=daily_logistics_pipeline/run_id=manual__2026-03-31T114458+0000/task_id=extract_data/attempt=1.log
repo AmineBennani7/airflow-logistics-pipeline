@@ -1,0 +1,21 @@
+{"timestamp":"2026-03-31T11:45:04.215959Z","level":"info","event":"DAG bundles loaded: dags-folder, example_dags","logger":"airflow.dag_processing.bundles.manager.DagBundlesManager","filename":"manager.py","lineno":179}
+{"timestamp":"2026-03-31T11:45:04.218261Z","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/daily_logistics_pipeline.py","logger":"airflow.models.dagbag.DagBag","filename":"dagbag.py","lineno":593}
+{"timestamp":"2026-03-31T11:45:04.269254Z","level":"warning","event":"The `airflow.operators.python.PythonOperator` attribute is deprecated. Please use `'airflow.providers.standard.operators.python.PythonOperator'`.","category":"DeprecatedImportWarning","filename":"/opt/airflow/dags/daily_logistics_pipeline.py","lineno":2,"logger":"py.warnings"}
+{"timestamp":"2026-03-31T11:45:04.403359Z","level":"info","event":"Task instance is in running state","logger":"task.stdout"}
+{"timestamp":"2026-03-31T11:45:04.404404Z","level":"info","event":" Previous state of the Task instance: TaskInstanceState.QUEUED","logger":"task.stdout"}
+{"timestamp":"2026-03-31T11:45:04.405248Z","level":"info","event":"Current task name:extract_data","logger":"task.stdout"}
+{"timestamp":"2026-03-31T11:45:04.406420Z","level":"info","event":"Dag name:daily_logistics_pipeline","logger":"task.stdout"}
+{"timestamp":"2026-03-31T11:45:04.458332Z","level":"info","event":"Number of rows: 20","logger":"task.stdout"}
+{"timestamp":"2026-03-31T11:45:04.459207Z","level":"info","event":"Columns: ['shipment_id', 'customer_id', 'route_id', 'vehicle_id', 'driver_id', 'planned_departure', 'actual_departure', 'planned_arrival', 'actual_arrival', 'origin', 'destination', 'distance_km', 'fuel_cost', 'shipment_revenue', 'shipment_status', 'cargo_type']","logger":"task.stdout"}
+{"timestamp":"2026-03-31T11:45:04.497241Z","level":"info","event":"  shipment_id customer_id  ... shipment_status  cargo_type","logger":"task.stdout"}
+{"timestamp":"2026-03-31T11:45:04.497953Z","level":"info","event":"0        S001        C001  ...       Delivered      Pharma","logger":"task.stdout"}
+{"timestamp":"2026-03-31T11:45:04.498752Z","level":"info","event":"1        S002        C002  ...       Delivered   Chemicals","logger":"task.stdout"}
+{"timestamp":"2026-03-31T11:45:04.499352Z","level":"info","event":"2        S003        C001  ...       Delivered      Pharma","logger":"task.stdout"}
+{"timestamp":"2026-03-31T11:45:04.500105Z","level":"info","event":"3        S004        C003  ...       Delivered  Industrial","logger":"task.stdout"}
+{"timestamp":"2026-03-31T11:45:04.500861Z","level":"info","event":"4        S005        C004  ...       Delivered        Food","logger":"task.stdout"}
+{"timestamp":"2026-03-31T11:45:04.501840Z","level":"info","event":"","logger":"task.stdout"}
+{"timestamp":"2026-03-31T11:45:04.502620Z","level":"info","event":"[5 rows x 16 columns]","logger":"task.stdout"}
+{"timestamp":"2026-03-31T11:45:04.497759Z","level":"info","event":"Done. Returned value was: None","logger":"airflow.task.operators.airflow.providers.standard.operators.python.PythonOperator","filename":"python.py","lineno":217}
+{"timestamp":"2026-03-31T11:45:04.550653Z","level":"info","event":"Task instance in success state","logger":"task.stdout"}
+{"timestamp":"2026-03-31T11:45:04.551419Z","level":"info","event":" Previous state of the Task instance: TaskInstanceState.RUNNING","logger":"task.stdout"}
+{"timestamp":"2026-03-31T11:45:04.552323Z","level":"info","event":"Task operator:<Task(PythonOperator): extract_data>","logger":"task.stdout"}

@@ -1,0 +1,17 @@
+{"timestamp":"2026-03-31T13:25:40.176680Z","level":"info","event":"DAG bundles loaded: dags-folder, example_dags","logger":"airflow.dag_processing.bundles.manager.DagBundlesManager","filename":"manager.py","lineno":179}
+{"timestamp":"2026-03-31T13:25:40.179493Z","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/daily_logistics_pipeline.py","logger":"airflow.models.dagbag.DagBag","filename":"dagbag.py","lineno":593}
+{"timestamp":"2026-03-31T13:25:40.228361Z","level":"info","event":"Task instance is in running state","logger":"task.stdout"}
+{"timestamp":"2026-03-31T13:25:40.229124Z","level":"info","event":" Previous state of the Task instance: TaskInstanceState.QUEUED","logger":"task.stdout"}
+{"timestamp":"2026-03-31T13:25:40.229682Z","level":"info","event":"Current task name:validate_data","logger":"task.stdout"}
+{"timestamp":"2026-03-31T13:25:40.230041Z","level":"info","event":"Dag name:daily_logistics_pipeline","logger":"task.stdout"}
+{"timestamp":"2026-03-31T13:25:40.250840Z","level":"info","event":"Starting data validation...","logger":"task.stdout"}
+{"timestamp":"2026-03-31T13:25:40.254925Z","level":"info","event":"Rows with missing critical values: 0","logger":"task.stdout"}
+{"timestamp":"2026-03-31T13:25:40.256210Z","level":"info","event":"Rows with invalid status: 0","logger":"task.stdout"}
+{"timestamp":"2026-03-31T13:25:40.257930Z","level":"info","event":"Rows with numeric issues: 0","logger":"task.stdout"}
+{"timestamp":"2026-03-31T13:25:40.268300Z","level":"info","event":"Rows with date/business inconsistencies: 0","logger":"task.stdout"}
+{"timestamp":"2026-03-31T13:25:40.268885Z","level":"info","event":"Validation completed","logger":"task.stdout"}
+{"timestamp":"2026-03-31T13:25:40.281866Z","level":"info","event":"Total problematic rows saved: 0","logger":"task.stdout"}
+{"timestamp":"2026-03-31T13:25:40.281972Z","level":"info","event":"Done. Returned value was: None","logger":"airflow.task.operators.airflow.providers.standard.operators.python.PythonOperator","filename":"python.py","lineno":217}
+{"timestamp":"2026-03-31T13:25:40.297774Z","level":"info","event":"Task instance in success state","logger":"task.stdout"}
+{"timestamp":"2026-03-31T13:25:40.298430Z","level":"info","event":" Previous state of the Task instance: TaskInstanceState.RUNNING","logger":"task.stdout"}
+{"timestamp":"2026-03-31T13:25:40.299284Z","level":"info","event":"Task operator:<Task(PythonOperator): validate_data>","logger":"task.stdout"}

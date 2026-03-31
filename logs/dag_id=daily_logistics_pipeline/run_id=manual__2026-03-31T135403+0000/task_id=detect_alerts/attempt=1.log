@@ -1,0 +1,12 @@
+{"timestamp":"2026-03-31T13:54:09.942754Z","level":"info","event":"DAG bundles loaded: dags-folder, example_dags","logger":"airflow.dag_processing.bundles.manager.DagBundlesManager","filename":"manager.py","lineno":179}
+{"timestamp":"2026-03-31T13:54:09.944191Z","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/daily_logistics_pipeline.py","logger":"airflow.models.dagbag.DagBag","filename":"dagbag.py","lineno":593}
+{"timestamp":"2026-03-31T13:54:09.980183Z","level":"info","event":"Task instance is in running state","logger":"task.stdout"}
+{"timestamp":"2026-03-31T13:54:09.981076Z","level":"info","event":" Previous state of the Task instance: TaskInstanceState.QUEUED","logger":"task.stdout"}
+{"timestamp":"2026-03-31T13:54:09.981701Z","level":"info","event":"Current task name:detect_alerts","logger":"task.stdout"}
+{"timestamp":"2026-03-31T13:54:09.982149Z","level":"info","event":"Dag name:daily_logistics_pipeline","logger":"task.stdout"}
+{"timestamp":"2026-03-31T13:54:09.997416Z","level":"info","event":"Detecting alerts...","logger":"task.stdout"}
+{"timestamp":"2026-03-31T13:54:10.015064Z","level":"info","event":"Alerts saved: 14","logger":"task.stdout"}
+{"timestamp":"2026-03-31T13:54:10.015124Z","level":"info","event":"Done. Returned value was: None","logger":"airflow.task.operators.airflow.providers.standard.operators.python.PythonOperator","filename":"python.py","lineno":217}
+{"timestamp":"2026-03-31T13:54:10.036558Z","level":"info","event":"Task instance in success state","logger":"task.stdout"}
+{"timestamp":"2026-03-31T13:54:10.038767Z","level":"info","event":" Previous state of the Task instance: TaskInstanceState.RUNNING","logger":"task.stdout"}
+{"timestamp":"2026-03-31T13:54:10.041973Z","level":"info","event":"Task operator:<Task(PythonOperator): detect_alerts>","logger":"task.stdout"}

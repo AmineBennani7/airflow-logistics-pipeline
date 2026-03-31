@@ -1,0 +1,14 @@
+{"timestamp":"2026-03-31T13:54:08.837343Z","level":"info","event":"DAG bundles loaded: dags-folder, example_dags","logger":"airflow.dag_processing.bundles.manager.DagBundlesManager","filename":"manager.py","lineno":179}
+{"timestamp":"2026-03-31T13:54:08.838909Z","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/daily_logistics_pipeline.py","logger":"airflow.models.dagbag.DagBag","filename":"dagbag.py","lineno":593}
+{"timestamp":"2026-03-31T13:54:08.878682Z","level":"info","event":"Task instance is in running state","logger":"task.stdout"}
+{"timestamp":"2026-03-31T13:54:08.879602Z","level":"info","event":" Previous state of the Task instance: TaskInstanceState.QUEUED","logger":"task.stdout"}
+{"timestamp":"2026-03-31T13:54:08.880272Z","level":"info","event":"Current task name:compute_kpis","logger":"task.stdout"}
+{"timestamp":"2026-03-31T13:54:08.880880Z","level":"info","event":"Dag name:daily_logistics_pipeline","logger":"task.stdout"}
+{"timestamp":"2026-03-31T13:54:08.901179Z","level":"info","event":"Computing KPIs...","logger":"task.stdout"}
+{"timestamp":"2026-03-31T13:54:08.911200Z","level":"info","event":"KPI summary saved","logger":"task.stdout"}
+{"timestamp":"2026-03-31T13:54:08.930570Z","level":"info","event":"KPI by route saved","logger":"task.stdout"}
+{"timestamp":"2026-03-31T13:54:08.942126Z","level":"info","event":"KPI by customer saved","logger":"task.stdout"}
+{"timestamp":"2026-03-31T13:54:08.942211Z","level":"info","event":"Done. Returned value was: None","logger":"airflow.task.operators.airflow.providers.standard.operators.python.PythonOperator","filename":"python.py","lineno":217}
+{"timestamp":"2026-03-31T13:54:08.962926Z","level":"info","event":"Task instance in success state","logger":"task.stdout"}
+{"timestamp":"2026-03-31T13:54:08.963715Z","level":"info","event":" Previous state of the Task instance: TaskInstanceState.RUNNING","logger":"task.stdout"}
+{"timestamp":"2026-03-31T13:54:08.964554Z","level":"info","event":"Task operator:<Task(PythonOperator): compute_kpis>","logger":"task.stdout"}
