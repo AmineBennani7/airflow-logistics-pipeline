@@ -1,0 +1,14 @@
+{"timestamp":"2026-03-31T23:26:55.945956Z","level":"info","event":"DAG bundles loaded: dags-folder, example_dags","logger":"airflow.dag_processing.bundles.manager.DagBundlesManager","filename":"manager.py","lineno":179}
+{"timestamp":"2026-03-31T23:26:55.948029Z","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/daily_logistics_pipeline.py","logger":"airflow.models.dagbag.DagBag","filename":"dagbag.py","lineno":593}
+{"timestamp":"2026-03-31T23:26:55.980305Z","level":"warning","event":"The `airflow.operators.python.PythonOperator` attribute is deprecated. Please use `'airflow.providers.standard.operators.python.PythonOperator'`.","category":"DeprecatedImportWarning","filename":"/opt/airflow/dags/daily_logistics_pipeline.py","lineno":573,"logger":"py.warnings"}
+{"timestamp":"2026-03-31T23:26:56.008992Z","level":"info","event":"Task instance is in running state","logger":"task.stdout"}
+{"timestamp":"2026-03-31T23:26:56.009870Z","level":"info","event":" Previous state of the Task instance: TaskInstanceState.QUEUED","logger":"task.stdout"}
+{"timestamp":"2026-03-31T23:26:56.010658Z","level":"info","event":"Current task name:merge_with_gps","logger":"task.stdout"}
+{"timestamp":"2026-03-31T23:26:56.011657Z","level":"info","event":"Dag name:daily_logistics_pipeline","logger":"task.stdout"}
+{"timestamp":"2026-03-31T23:26:56.113048Z","level":"info","event":"Merging shipments with GPS...","logger":"task.stdout"}
+{"timestamp":"2026-03-31T23:26:56.192922Z","level":"info","event":"Merge completed","logger":"task.stdout"}
+{"timestamp":"2026-03-31T23:26:56.194517Z","level":"info","event":"Rows after merge: 500","logger":"task.stdout"}
+{"timestamp":"2026-03-31T23:26:56.193592Z","level":"info","event":"Done. Returned value was: None","logger":"airflow.task.operators.airflow.providers.standard.operators.python.PythonOperator","filename":"python.py","lineno":217}
+{"timestamp":"2026-03-31T23:26:56.240357Z","level":"info","event":"Task instance in success state","logger":"task.stdout"}
+{"timestamp":"2026-03-31T23:26:56.241507Z","level":"info","event":" Previous state of the Task instance: TaskInstanceState.RUNNING","logger":"task.stdout"}
+{"timestamp":"2026-03-31T23:26:56.243044Z","level":"info","event":"Task operator:<Task(PythonOperator): merge_with_gps>","logger":"task.stdout"}

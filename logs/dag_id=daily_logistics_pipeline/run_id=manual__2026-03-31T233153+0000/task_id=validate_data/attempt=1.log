@@ -1,0 +1,18 @@
+{"timestamp":"2026-03-31T23:31:56.266655Z","level":"info","event":"DAG bundles loaded: dags-folder, example_dags","logger":"airflow.dag_processing.bundles.manager.DagBundlesManager","filename":"manager.py","lineno":179}
+{"timestamp":"2026-03-31T23:31:56.269161Z","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/daily_logistics_pipeline.py","logger":"airflow.models.dagbag.DagBag","filename":"dagbag.py","lineno":593}
+{"timestamp":"2026-03-31T23:31:56.296610Z","level":"warning","event":"The `airflow.operators.python.PythonOperator` attribute is deprecated. Please use `'airflow.providers.standard.operators.python.PythonOperator'`.","category":"DeprecatedImportWarning","filename":"/opt/airflow/dags/daily_logistics_pipeline.py","lineno":573,"logger":"py.warnings"}
+{"timestamp":"2026-03-31T23:31:56.323834Z","level":"info","event":"Task instance is in running state","logger":"task.stdout"}
+{"timestamp":"2026-03-31T23:31:56.324941Z","level":"info","event":" Previous state of the Task instance: TaskInstanceState.QUEUED","logger":"task.stdout"}
+{"timestamp":"2026-03-31T23:31:56.326054Z","level":"info","event":"Current task name:validate_data","logger":"task.stdout"}
+{"timestamp":"2026-03-31T23:31:56.327149Z","level":"info","event":"Dag name:daily_logistics_pipeline","logger":"task.stdout"}
+{"timestamp":"2026-03-31T23:31:56.376172Z","level":"info","event":"Starting data validation...","logger":"task.stdout"}
+{"timestamp":"2026-03-31T23:31:56.382830Z","level":"info","event":"Rows with missing critical values: 0","logger":"task.stdout"}
+{"timestamp":"2026-03-31T23:31:56.385303Z","level":"info","event":"Rows with invalid status: 0","logger":"task.stdout"}
+{"timestamp":"2026-03-31T23:31:56.386647Z","level":"info","event":"Rows with numeric issues: 0","logger":"task.stdout"}
+{"timestamp":"2026-03-31T23:31:56.401947Z","level":"info","event":"Rows with date/business inconsistencies: 0","logger":"task.stdout"}
+{"timestamp":"2026-03-31T23:31:56.402959Z","level":"info","event":"Validation completed","logger":"task.stdout"}
+{"timestamp":"2026-03-31T23:31:56.428092Z","level":"info","event":"Total problematic rows saved: 0","logger":"task.stdout"}
+{"timestamp":"2026-03-31T23:31:56.428337Z","level":"info","event":"Done. Returned value was: None","logger":"airflow.task.operators.airflow.providers.standard.operators.python.PythonOperator","filename":"python.py","lineno":217}
+{"timestamp":"2026-03-31T23:31:56.476404Z","level":"info","event":"Task instance in success state","logger":"task.stdout"}
+{"timestamp":"2026-03-31T23:31:56.477868Z","level":"info","event":" Previous state of the Task instance: TaskInstanceState.RUNNING","logger":"task.stdout"}
+{"timestamp":"2026-03-31T23:31:56.479263Z","level":"info","event":"Task operator:<Task(PythonOperator): validate_data>","logger":"task.stdout"}

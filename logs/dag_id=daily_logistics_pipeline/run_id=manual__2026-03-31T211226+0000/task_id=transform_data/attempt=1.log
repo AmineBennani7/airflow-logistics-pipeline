@@ -1,0 +1,12 @@
+{"timestamp":"2026-03-31T21:12:33.182657Z","level":"info","event":"DAG bundles loaded: dags-folder, example_dags","logger":"airflow.dag_processing.bundles.manager.DagBundlesManager","filename":"manager.py","lineno":179}
+{"timestamp":"2026-03-31T21:12:33.184372Z","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/daily_logistics_pipeline.py","logger":"airflow.models.dagbag.DagBag","filename":"dagbag.py","lineno":593}
+{"timestamp":"2026-03-31T21:12:33.232251Z","level":"info","event":"Task instance is in running state","logger":"task.stdout"}
+{"timestamp":"2026-03-31T21:12:33.234132Z","level":"info","event":" Previous state of the Task instance: TaskInstanceState.QUEUED","logger":"task.stdout"}
+{"timestamp":"2026-03-31T21:12:33.234706Z","level":"info","event":"Current task name:transform_data","logger":"task.stdout"}
+{"timestamp":"2026-03-31T21:12:33.235074Z","level":"info","event":"Dag name:daily_logistics_pipeline","logger":"task.stdout"}
+{"timestamp":"2026-03-31T21:12:33.261116Z","level":"info","event":"Starting transformation...","logger":"task.stdout"}
+{"timestamp":"2026-03-31T21:12:33.304946Z","level":"info","event":"Transformation completed","logger":"task.stdout"}
+{"timestamp":"2026-03-31T21:12:33.305041Z","level":"info","event":"Done. Returned value was: None","logger":"airflow.task.operators.airflow.providers.standard.operators.python.PythonOperator","filename":"python.py","lineno":217}
+{"timestamp":"2026-03-31T21:12:33.327321Z","level":"info","event":"Task instance in success state","logger":"task.stdout"}
+{"timestamp":"2026-03-31T21:12:33.328055Z","level":"info","event":" Previous state of the Task instance: TaskInstanceState.RUNNING","logger":"task.stdout"}
+{"timestamp":"2026-03-31T21:12:33.328855Z","level":"info","event":"Task operator:<Task(PythonOperator): transform_data>","logger":"task.stdout"}

@@ -1,12 +1,12 @@
 {
-    "total_shipments": 20,
-    "delivered_shipments": 19,
-    "in_transit_shipments": 1,
-    "on_time_deliveries": 8,
-    "late_deliveries": 11,
-    "on_time_delivery_rate": 0.42,
-    "average_arrival_delay_min": 33.68,
-    "total_revenue": 7795.0,
-    "total_fuel_cost": 1717.0,
-    "total_profit": 6078.0
+    "total_shipments": 500,
+    "delivered_shipments": 249,
+    "in_transit_shipments": 251,
+    "on_time_deliveries": 26,
+    "late_deliveries": 223,
+    "on_time_delivery_rate": 0.1,
+    "average_arrival_delay_min": 25.36,
+    "total_revenue": 199883.0,
+    "total_fuel_cost": 41786.0,
+    "total_profit": 158097.0
 }

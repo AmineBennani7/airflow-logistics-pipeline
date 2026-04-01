@@ -1,0 +1,20 @@
+{"timestamp":"2026-03-31T23:32:05.389147Z","level":"info","event":"DAG bundles loaded: dags-folder, example_dags","logger":"airflow.dag_processing.bundles.manager.DagBundlesManager","filename":"manager.py","lineno":179}
+{"timestamp":"2026-03-31T23:32:05.391352Z","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/daily_logistics_pipeline.py","logger":"airflow.models.dagbag.DagBag","filename":"dagbag.py","lineno":593}
+{"timestamp":"2026-03-31T23:32:05.426220Z","level":"warning","event":"The `airflow.operators.python.PythonOperator` attribute is deprecated. Please use `'airflow.providers.standard.operators.python.PythonOperator'`.","category":"DeprecatedImportWarning","filename":"/opt/airflow/dags/daily_logistics_pipeline.py","lineno":573,"logger":"py.warnings"}
+{"timestamp":"2026-03-31T23:32:05.458732Z","level":"info","event":"Task instance is in running state","logger":"task.stdout"}
+{"timestamp":"2026-03-31T23:32:05.459787Z","level":"info","event":" Previous state of the Task instance: TaskInstanceState.QUEUED","logger":"task.stdout"}
+{"timestamp":"2026-03-31T23:32:05.460589Z","level":"info","event":"Current task name:send_summary","logger":"task.stdout"}
+{"timestamp":"2026-03-31T23:32:05.461346Z","level":"info","event":"Dag name:daily_logistics_pipeline","logger":"task.stdout"}
+{"timestamp":"2026-03-31T23:32:05.462201Z","level":"info","event":"Generating execution summary...","logger":"task.stdout"}
+{"timestamp":"2026-03-31T23:32:05.587427Z","level":"info","event":"----- PIPELINE SUMMARY -----","logger":"task.stdout"}
+{"timestamp":"2026-03-31T23:32:05.588359Z","level":"info","event":"Total rows: 500","logger":"task.stdout"}
+{"timestamp":"2026-03-31T23:32:05.589155Z","level":"info","event":"Invalid rows: 0","logger":"task.stdout"}
+{"timestamp":"2026-03-31T23:32:05.589803Z","level":"info","event":"Data quality: 100.00%","logger":"task.stdout"}
+{"timestamp":"2026-03-31T23:32:05.590595Z","level":"info","event":"On-time delivery rate: 0.1","logger":"task.stdout"}
+{"timestamp":"2026-03-31T23:32:05.591325Z","level":"info","event":"Total alerts: 171","logger":"task.stdout"}
+{"timestamp":"2026-03-31T23:32:05.591974Z","level":"info","event":"Most risky route: R008 (Luxembourg → Nancy)","logger":"task.stdout"}
+{"timestamp":"2026-03-31T23:32:05.592593Z","level":"info","event":"----------------------------","logger":"task.stdout"}
+{"timestamp":"2026-03-31T23:32:05.587606Z","level":"info","event":"Done. Returned value was: None","logger":"airflow.task.operators.airflow.providers.standard.operators.python.PythonOperator","filename":"python.py","lineno":217}
+{"timestamp":"2026-03-31T23:32:05.611243Z","level":"info","event":"Task instance in success state","logger":"task.stdout"}
+{"timestamp":"2026-03-31T23:32:05.612078Z","level":"info","event":" Previous state of the Task instance: TaskInstanceState.RUNNING","logger":"task.stdout"}
+{"timestamp":"2026-03-31T23:32:05.612884Z","level":"info","event":"Task operator:<Task(PythonOperator): send_summary>","logger":"task.stdout"}

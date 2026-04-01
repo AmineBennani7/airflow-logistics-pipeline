@@ -1,0 +1,18 @@
+{"timestamp":"2026-03-31T21:12:30.993486Z","level":"info","event":"DAG bundles loaded: dags-folder, example_dags","logger":"airflow.dag_processing.bundles.manager.DagBundlesManager","filename":"manager.py","lineno":179}
+{"timestamp":"2026-03-31T21:12:30.995189Z","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/daily_logistics_pipeline.py","logger":"airflow.models.dagbag.DagBag","filename":"dagbag.py","lineno":593}
+{"timestamp":"2026-03-31T21:12:31.036064Z","level":"info","event":"Task instance is in running state","logger":"task.stdout"}
+{"timestamp":"2026-03-31T21:12:31.036743Z","level":"info","event":" Previous state of the Task instance: TaskInstanceState.QUEUED","logger":"task.stdout"}
+{"timestamp":"2026-03-31T21:12:31.037353Z","level":"info","event":"Current task name:validate_data","logger":"task.stdout"}
+{"timestamp":"2026-03-31T21:12:31.037817Z","level":"info","event":"Dag name:daily_logistics_pipeline","logger":"task.stdout"}
+{"timestamp":"2026-03-31T21:12:31.057686Z","level":"info","event":"Starting data validation...","logger":"task.stdout"}
+{"timestamp":"2026-03-31T21:12:31.063227Z","level":"info","event":"Rows with missing critical values: 0","logger":"task.stdout"}
+{"timestamp":"2026-03-31T21:12:31.064614Z","level":"info","event":"Rows with invalid status: 0","logger":"task.stdout"}
+{"timestamp":"2026-03-31T21:12:31.068123Z","level":"info","event":"Rows with numeric issues: 0","logger":"task.stdout"}
+{"timestamp":"2026-03-31T21:12:31.085833Z","level":"info","event":"Rows with date/business inconsistencies: 254","logger":"task.stdout"}
+{"timestamp":"2026-03-31T21:12:31.086504Z","level":"info","event":"Validation completed","logger":"task.stdout"}
+{"timestamp":"2026-03-31T21:12:31.089068Z","level":"warning","event":"The behavior of DataFrame concatenation with empty or all-NA entries is deprecated. In a future version, this will no longer exclude empty or all-NA columns when determining the result dtypes. To retain the old behavior, exclude the relevant entries before the concat operation.","category":"FutureWarning","filename":"/opt/airflow/dags/daily_logistics_pipeline.py","lineno":84,"logger":"py.warnings"}
+{"timestamp":"2026-03-31T21:12:31.110663Z","level":"info","event":"Total problematic rows saved: 254","logger":"task.stdout"}
+{"timestamp":"2026-03-31T21:12:31.110824Z","level":"info","event":"Done. Returned value was: None","logger":"airflow.task.operators.airflow.providers.standard.operators.python.PythonOperator","filename":"python.py","lineno":217}
+{"timestamp":"2026-03-31T21:12:31.127852Z","level":"info","event":"Task instance in success state","logger":"task.stdout"}
+{"timestamp":"2026-03-31T21:12:31.128937Z","level":"info","event":" Previous state of the Task instance: TaskInstanceState.RUNNING","logger":"task.stdout"}
+{"timestamp":"2026-03-31T21:12:31.129526Z","level":"info","event":"Task operator:<Task(PythonOperator): validate_data>","logger":"task.stdout"}

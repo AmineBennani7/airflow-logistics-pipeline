@@ -1,0 +1,20 @@
+{"timestamp":"2026-03-31T23:31:55.725755Z","level":"info","event":"DAG bundles loaded: dags-folder, example_dags","logger":"airflow.dag_processing.bundles.manager.DagBundlesManager","filename":"manager.py","lineno":179}
+{"timestamp":"2026-03-31T23:31:55.727999Z","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/daily_logistics_pipeline.py","logger":"airflow.models.dagbag.DagBag","filename":"dagbag.py","lineno":593}
+{"timestamp":"2026-03-31T23:31:55.757581Z","level":"warning","event":"The `airflow.operators.python.PythonOperator` attribute is deprecated. Please use `'airflow.providers.standard.operators.python.PythonOperator'`.","category":"DeprecatedImportWarning","filename":"/opt/airflow/dags/daily_logistics_pipeline.py","lineno":573,"logger":"py.warnings"}
+{"timestamp":"2026-03-31T23:31:55.790072Z","level":"info","event":"Task instance is in running state","logger":"task.stdout"}
+{"timestamp":"2026-03-31T23:31:55.791121Z","level":"info","event":" Previous state of the Task instance: TaskInstanceState.QUEUED","logger":"task.stdout"}
+{"timestamp":"2026-03-31T23:31:55.792159Z","level":"info","event":"Current task name:extract_gps_updates","logger":"task.stdout"}
+{"timestamp":"2026-03-31T23:31:55.793018Z","level":"info","event":"Dag name:daily_logistics_pipeline","logger":"task.stdout"}
+{"timestamp":"2026-03-31T23:31:55.839533Z","level":"info","event":"GPS rows: 5000","logger":"task.stdout"}
+{"timestamp":"2026-03-31T23:31:55.857334Z","level":"info","event":"  shipment_id vehicle_id  ... gps_status  estimated_remaining_km","logger":"task.stdout"}
+{"timestamp":"2026-03-31T23:31:55.858001Z","level":"info","event":"0        S001       V002  ...   On Route                     283","logger":"task.stdout"}
+{"timestamp":"2026-03-31T23:31:55.858642Z","level":"info","event":"1        S001       V002  ...   On Route                     278","logger":"task.stdout"}
+{"timestamp":"2026-03-31T23:31:55.859299Z","level":"info","event":"2        S001       V002  ...   On Route                     260","logger":"task.stdout"}
+{"timestamp":"2026-03-31T23:31:55.860283Z","level":"info","event":"3        S001       V002  ...    Delayed                     255","logger":"task.stdout"}
+{"timestamp":"2026-03-31T23:31:55.860923Z","level":"info","event":"4        S001       V002  ...    Stopped                     255","logger":"task.stdout"}
+{"timestamp":"2026-03-31T23:31:55.861783Z","level":"info","event":"","logger":"task.stdout"}
+{"timestamp":"2026-03-31T23:31:55.862579Z","level":"info","event":"[5 rows x 7 columns]","logger":"task.stdout"}
+{"timestamp":"2026-03-31T23:31:55.915253Z","level":"info","event":"Done. Returned value was: None","logger":"airflow.task.operators.airflow.providers.standard.operators.python.PythonOperator","filename":"python.py","lineno":217}
+{"timestamp":"2026-03-31T23:31:55.938887Z","level":"info","event":"Task instance in success state","logger":"task.stdout"}
+{"timestamp":"2026-03-31T23:31:55.939955Z","level":"info","event":" Previous state of the Task instance: TaskInstanceState.RUNNING","logger":"task.stdout"}
+{"timestamp":"2026-03-31T23:31:55.940998Z","level":"info","event":"Task operator:<Task(PythonOperator): extract_gps_updates>","logger":"task.stdout"}

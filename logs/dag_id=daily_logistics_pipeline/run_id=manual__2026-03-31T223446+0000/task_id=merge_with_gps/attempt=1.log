@@ -1,0 +1,13 @@
+{"timestamp":"2026-03-31T22:44:53.399555Z","level":"info","event":"DAG bundles loaded: dags-folder, example_dags","logger":"airflow.dag_processing.bundles.manager.DagBundlesManager","filename":"manager.py","lineno":179}
+{"timestamp":"2026-03-31T22:44:53.401712Z","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/daily_logistics_pipeline.py","logger":"airflow.models.dagbag.DagBag","filename":"dagbag.py","lineno":593}
+{"timestamp":"2026-03-31T22:44:53.468815Z","level":"info","event":"Task instance is in running state","logger":"task.stdout"}
+{"timestamp":"2026-03-31T22:44:53.470319Z","level":"info","event":" Previous state of the Task instance: TaskInstanceState.QUEUED","logger":"task.stdout"}
+{"timestamp":"2026-03-31T22:44:53.471351Z","level":"info","event":"Current task name:merge_with_gps","logger":"task.stdout"}
+{"timestamp":"2026-03-31T22:44:53.472332Z","level":"info","event":"Dag name:daily_logistics_pipeline","logger":"task.stdout"}
+{"timestamp":"2026-03-31T22:44:53.572138Z","level":"info","event":"Merging shipments with GPS...","logger":"task.stdout"}
+{"timestamp":"2026-03-31T22:44:53.640262Z","level":"info","event":"Merge completed","logger":"task.stdout"}
+{"timestamp":"2026-03-31T22:44:53.641696Z","level":"info","event":"Rows after merge: 500","logger":"task.stdout"}
+{"timestamp":"2026-03-31T22:44:53.640749Z","level":"info","event":"Done. Returned value was: None","logger":"airflow.task.operators.airflow.providers.standard.operators.python.PythonOperator","filename":"python.py","lineno":217}
+{"timestamp":"2026-03-31T22:44:53.678275Z","level":"info","event":"Task instance in success state","logger":"task.stdout"}
+{"timestamp":"2026-03-31T22:44:53.679294Z","level":"info","event":" Previous state of the Task instance: TaskInstanceState.RUNNING","logger":"task.stdout"}
+{"timestamp":"2026-03-31T22:44:53.680263Z","level":"info","event":"Task operator:<Task(PythonOperator): merge_with_gps>","logger":"task.stdout"}

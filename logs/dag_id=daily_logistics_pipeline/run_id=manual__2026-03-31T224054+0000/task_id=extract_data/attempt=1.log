@@ -1,0 +1,11 @@
+{"timestamp":"2026-03-31T22:40:56.903277Z","level":"info","event":"DAG bundles loaded: dags-folder, example_dags","logger":"airflow.dag_processing.bundles.manager.DagBundlesManager","filename":"manager.py","lineno":179}
+{"timestamp":"2026-03-31T22:40:56.906442Z","level":"info","event":"Filling up the DagBag from /opt/airflow/dags/daily_logistics_pipeline.py","logger":"airflow.models.dagbag.DagBag","filename":"dagbag.py","lineno":593}
+{"timestamp":"2026-03-31T22:40:57.020690Z","level":"info","event":"Task instance is in running state","logger":"task.stdout"}
+{"timestamp":"2026-03-31T22:40:57.021611Z","level":"info","event":" Previous state of the Task instance: TaskInstanceState.QUEUED","logger":"task.stdout"}
+{"timestamp":"2026-03-31T22:40:57.022356Z","level":"info","event":"Current task name:extract_data","logger":"task.stdout"}
+{"timestamp":"2026-03-31T22:40:57.022929Z","level":"info","event":"Dag name:daily_logistics_pipeline","logger":"task.stdout"}
+{"timestamp":"2026-03-31T22:40:57.081043Z","level":"info","event":"Number of rows: 500","logger":"task.stdout"}
+{"timestamp":"2026-03-31T22:40:57.107305Z","level":"info","event":"Done. Returned value was: None","logger":"airflow.task.operators.airflow.providers.standard.operators.python.PythonOperator","filename":"python.py","lineno":217}
+{"timestamp":"2026-03-31T22:40:57.128087Z","level":"info","event":"Task instance in success state","logger":"task.stdout"}
+{"timestamp":"2026-03-31T22:40:57.128607Z","level":"info","event":" Previous state of the Task instance: TaskInstanceState.RUNNING","logger":"task.stdout"}
+{"timestamp":"2026-03-31T22:40:57.129329Z","level":"info","event":"Task operator:<Task(PythonOperator): extract_data>","logger":"task.stdout"}

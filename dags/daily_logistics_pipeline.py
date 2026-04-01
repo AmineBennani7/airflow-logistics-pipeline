@@ -2,10 +2,14 @@ from airflow import DAG
 from datetime import datetime
 import pandas as pd
 from airflow.providers.standard.operators.python import PythonOperator
-
+from datetime import timedelta
 
 '------------------------------------------------------------------------------------------------------------------------'
 
+default_args = {
+    "retries": 2,
+    "retry_delay": timedelta(minutes=5)
+}
 
 def extract_data():
     input_path = "/opt/airflow/dags/data/raw/shipments.csv"
@@ -303,12 +307,218 @@ def detect_alerts():
 
 
 
+
+
+"----------------------------------------------------------------------------------------------------------------------------------"
+'''
+GPS 
+'''
+
+def extract_gps_updates():
+    input_path = "/opt/airflow/dags/data/raw/gps_updates.csv"
+    output_path = "/opt/airflow/dags/data/processed/gps_extracted.csv"
+
+    df = pd.read_csv(input_path)
+
+    print("GPS rows:", len(df))
+    print(df.head())
+
+    df.to_csv(output_path, index=False)
+
+def merge_with_gps():
+    shipments_path = "/opt/airflow/dags/data/processed/extracted.csv"
+    gps_path = "/opt/airflow/dags/data/processed/gps_extracted.csv"
+    output_path = "/opt/airflow/dags/data/processed/shipments_gps_enriched.csv"
+
+    df_ship = pd.read_csv(shipments_path)
+    df_gps = pd.read_csv(gps_path)
+
+    print("Merging shipments with GPS...")
+
+    # Convert timestamp to datetime
+    df_gps["gps_timestamp"] = pd.to_datetime(df_gps["gps_timestamp"])
+
+    # Keep latest GPS per shipment
+    df_gps_latest = df_gps.sort_values("gps_timestamp").groupby("shipment_id").tail(1)
+
+    # Merge
+    df_merged = df_ship.merge(df_gps_latest, on="shipment_id", how="left")
+
+    df_merged.to_csv(output_path, index=False)
+
+    print("Merge completed")
+    print("Rows after merge:", len(df_merged))
+
+
+
+def compute_eta():
+    input_path = "/opt/airflow/dags/data/processed/shipments_gps_enriched.csv"
+    output_path = "/opt/airflow/dags/data/processed/shipments_with_eta.csv"
+
+    df = pd.read_csv(input_path)
+
+    print("Computing ETA...")
+
+    # Convert to datetime
+    df["gps_timestamp"] = pd.to_datetime(df["gps_timestamp"], errors="coerce")
+    df["planned_arrival"] = pd.to_datetime(df["planned_arrival"], errors="coerce")
+
+    # Assumed average speed (km/h)
+    AVG_SPEED_KMH = 60
+
+    # Compute remaining time in hours
+    df["remaining_hours"] = df["estimated_remaining_km"] / AVG_SPEED_KMH
+
+    # Convert to timedelta
+    df["remaining_time"] = pd.to_timedelta(df["remaining_hours"], unit="h")
+
+    # Compute ETA
+    df["estimated_arrival_time"] = df["gps_timestamp"] + df["remaining_time"]
+
+    # Compute risk
+    # Determine delay risk by comparing the estimated arrival time (ETA) 
+    # with the planned arrival time.
+    # If the ETA is later than the planned arrival, the shipment is at risk of delay.
+    # Otherwise, it is considered on time.
+    df["eta_risk"] = df.apply(
+        lambda row: "RISK_DELAY"
+        if pd.notnull(row["estimated_arrival_time"]) 
+        and pd.notnull(row["planned_arrival"]) 
+        and row["estimated_arrival_time"] > row["planned_arrival"]
+        else "ON_TIME",
+        axis=1
+)
+    df.to_csv(output_path, index=False)
+
+    print("ETA computation completed")
+    print("Rows:", len(df))
+
+
+
+def quality_gate():
+    import os
+
+    data_path = "/opt/airflow/dags/data/processed/extracted.csv"
+    issues_path = "/opt/airflow/dags/data/processed/data_quality_issues.csv"
+
+    print("Starting quality gate...")
+
+    df_data = pd.read_csv(data_path)
+    total_rows = len(df_data)
+
+    if os.path.exists(issues_path):
+        df_issues = pd.read_csv(issues_path)
+        invalid_rows = len(df_issues)
+    else:
+        invalid_rows = 0
+
+    error_rate = invalid_rows / total_rows if total_rows > 0 else 0
+
+    print(f"Total rows: {total_rows}")
+    print(f"Invalid rows: {invalid_rows}")
+    print(f"Error rate: {error_rate:.2%}")
+
+    # Stop the pipeline if the percentage of invalid rows is above 20%
+    if error_rate > 0.20:
+        raise ValueError(
+            f"Quality gate failed: {error_rate:.2%} of rows are invalid, which is above the 20% threshold."
+        )
+
+    print("Quality gate passed")
+
+
+def send_summary():
+        import os
+
+        print("Generating execution summary...")
+
+        # Paths
+        data_path = "/opt/airflow/dags/data/processed/extracted.csv"
+        issues_path = "/opt/airflow/dags/data/processed/data_quality_issues.csv"
+        kpi_path = "/opt/airflow/dags/data/processed/kpi_summary.json"
+        alerts_path = "/opt/airflow/dags/data/processed/alerts.csv"
+        route_kpi_path = "/opt/airflow/dags/data/processed/kpi_by_route.csv"
+
+        # Load data
+        df_data = pd.read_csv(data_path)
+        total_rows = len(df_data)
+
+        # Issues
+        if os.path.exists(issues_path):
+            df_issues = pd.read_csv(issues_path)
+            invalid_rows = len(df_issues)
+        else:
+            invalid_rows = 0
+
+        quality_rate = 1 - (invalid_rows / total_rows) if total_rows > 0 else 0
+
+        # KPIs
+        if os.path.exists(kpi_path):
+            import json
+            with open(kpi_path) as f:
+                kpis = json.load(f)
+            on_time_rate = kpis.get("on_time_delivery_rate", 0)
+        else:
+            on_time_rate = 0
+
+        # Alerts
+        if os.path.exists(alerts_path):
+            df_alerts = pd.read_csv(alerts_path)
+            total_alerts = len(df_alerts)
+        else:
+            total_alerts = 0
+
+        # Most risky route
+        if os.path.exists(route_kpi_path):
+            df_route = pd.read_csv(route_kpi_path)
+            if not df_route.empty:
+                worst_route = df_route.sort_values("avg_arrival_delay", ascending=False).iloc[0]
+                route_info = f"{worst_route['route_id']} ({worst_route['origin']} → {worst_route['destination']})"
+            else:
+                route_info = "N/A"
+        else:
+            route_info = "N/A"
+
+        # Print summary
+        print("----- PIPELINE SUMMARY -----")
+        print(f"Total rows: {total_rows}")
+        print(f"Invalid rows: {invalid_rows}")
+        print(f"Data quality: {quality_rate:.2%}")
+        print(f"On-time delivery rate: {on_time_rate}")
+        print(f"Total alerts: {total_alerts}")
+        print(f"Most risky route: {route_info}")
+        print("----------------------------")
+
+
+
+def save_to_postgres(**context):
+    import pandas as pd
+    from sqlalchemy import create_engine
+
+    # Load  final dataset
+    df = pd.read_csv("/opt/airflow/dags/data/processed/shipments_with_eta.csv")
+
+    # Connection to PostgreSQL (Docker Airflow default)
+    engine = create_engine("postgresql+psycopg2://airflow:airflow@postgres:5432/airflow")
+
+    # Save to table
+    df.to_sql("shipments_enriched", engine, if_exists="replace", index=False)
+
+    print("Data saved to PostgreSQL successfully")
+
+
+
+
+
+
+
 "------------------------------------------------------------------------------------------------------------------------"
 with DAG(
     dag_id="daily_logistics_pipeline",
     start_date=datetime(2024, 1, 1),
     schedule=None,
-    catchup=False
+    catchup=False,
+    default_args=default_args
 ) as dag:
 
     extract_task = PythonOperator(
@@ -336,7 +546,49 @@ with DAG(
         python_callable=detect_alerts
     )
 
-    # Define execution order (pipeline flow)
-    extract_task >> validate_task >> transform_task >> compute_kpis_task >> detect_alerts_task
-    
+    gps_extract_task = PythonOperator(
+    task_id="extract_gps_updates",
+    python_callable=extract_gps_updates
+)
 
+    merge_task = PythonOperator(
+        task_id="merge_with_gps",
+        python_callable=merge_with_gps
+    )
+    compute_eta_task = PythonOperator(
+        task_id="compute_eta",
+        python_callable=compute_eta
+    
+    )
+
+    quality_task = PythonOperator(
+    task_id="quality_gate",
+    python_callable=quality_gate
+)
+    summary_task = PythonOperator(
+    task_id="send_summary",
+    python_callable=send_summary
+    )
+
+    from airflow.operators.python import PythonOperator
+
+    save_postgres_task = PythonOperator(
+        task_id="save_to_postgres",
+        python_callable=save_to_postgres
+    )
+
+
+
+  # Define execution order (pipeline flow)
+# Step 1: Extract shipments
+    extract_task >> validate_task >> quality_task
+
+    # GPS extraction (independent start)
+    gps_extract_task
+
+    # Merge requires BOTH inputs
+    quality_task >> merge_task
+    gps_extract_task >> merge_task
+
+    # Continue pipeline
+    merge_task >> compute_eta_task >> transform_task >> compute_kpis_task >> detect_alerts_task >> summary_task >> save_postgres_task
